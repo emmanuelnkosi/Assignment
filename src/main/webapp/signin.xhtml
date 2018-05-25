@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+	<title>login</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h3>Please Sign In</h3>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="username">Username:</h:outputLabel>
+			<h:inputText id="username" value="#{loginView.username}" required="true" requiredMessage="Please enter your username"></h:inputText>
+
+			<h:outputLabel for="password">Password:</h:outputLabel>
+			<h:inputSecret id="password" value="#{loginView.password}" required="true" requiredMessage="Please enter password"></h:inputSecret>
+
+			<h:commandButton action="#{loginView.login}" value="Login"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	
+</h:body>
+</html>

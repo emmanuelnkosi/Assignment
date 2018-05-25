@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+	http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	
+	<persistence-unit name="assignmentPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/usersDS</jta-data-source>
+		<class>com.emmanuel.entity.User</class>
+		<class>com.emmanuel.entity.Group</class>
+		<class>com.emmanuel.entity.Compute</class>
+		
+		<properties>
+			<!--  tables will be created only if they do not exist. Use for production 
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			-->
+			
+			<!--  will first drop the existing table, and then create the new table. Use for development 
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			-->
+			
+			<property name="eclipselink.logging.level" value="INFO"/>
+		</properties>
+	</persistence-unit>
+	
+</persistence>

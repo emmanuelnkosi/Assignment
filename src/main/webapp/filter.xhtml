@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://java.sun.com/jsf/html"  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />  
+    <title>All Users</title>
+    <style type="text/css">
+        .tableUpdated {
+        	width: 90% !important;
+        	margin: 17px 58px 0 !important;
+        }
+        .btnSpace {
+        	margin: 17px;
+        }     
+    </style>
+</h:head>
+<h:body>
+	<h3>Filter by Username</h3>
+	<br/><br/>
+	 <h:form>
+		<h3>Filter By Username</h3>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="equation">Username:</h:outputLabel>
+			<h:inputText id="equation" value="#{filterView.username}" required="true" requiredMessage="Please enter your username"></h:inputText>
+			<h:commandButton action="#{filterView.filter}" value="Filter"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	
+	<br></br>
+		 <h:dataTable id="reportTable" binding="#{table}" value="#{filterView.findByUsername()}" var="report" styleClass="table table-striped table-bordered tableUpdated">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{report.id}" />                
+            </h:column>
+              <h:column>
+                <f:facet name="header">Equation</f:facet>
+                <h:outputText value="#{report.request}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">User Computed</f:facet>
+                <h:outputText value="#{report.username}" />
+            </h:column>
+              <h:column>
+                <f:facet name="header">Answer</f:facet>
+                <h:outputText value="#{report.answer}" />
+            </h:column>
+              <h:column>
+                <f:facet name="header">Time Captured</f:facet>
+                <h:outputText value="#{report.timeCaptured}" />
+            </h:column>
+        </h:dataTable>
+	<br/><br/>
+	<h:link value="Admin Page" outcome="admin" />
+</h:body>
+</html>

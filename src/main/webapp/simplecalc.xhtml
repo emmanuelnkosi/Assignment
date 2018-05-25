@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:h="http://java.sun.com/jsf/html" >
+<h:head>
+ <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+	<title>Simple Calculation</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h3>Simple Calculations</h3>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="first">First Number:</h:outputLabel>
+			<h:inputText id="first" value="#{simpleView.first}"  required="true" requiredMessage="Please enter  firstNumber">
+			</h:inputText>
+			<h:outputLabel for="second">Second Number:</h:outputLabel>
+			<h:inputText id="second" value="#{simpleView.second}" required="true" requiredMessage="Please enter SecondNumber"></h:inputText>
+			
+				<h:outputLabel for="operator">Operation:</h:outputLabel>
+			<h:inputText id="operator" value="#{simpleView.operator}" required="true"  requiredMessage="Please enter Operation"></h:inputText>
+			
+
+	 	<h:commandButton action="#{simpleView.calculate}" value="Calculate"></h:commandButton>
+			
+		
+		</h:panelGrid>
+	</h:form>
+		<br/><br/>
+	    <h:outputLabel for="answer" value="The Answer is"/>
+        <h:outputText id="answer" value="#{simpleView.answer}"/>
+        <br/><br/>
+	   <h:link value="Complex Calculation" outcome="complecalc" />
+        
+</h:body>
+</html>
